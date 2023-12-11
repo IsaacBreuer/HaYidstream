@@ -23,6 +23,13 @@ auto-entities
 layout-card
 Mini Media Player
 
+add 5 Helper entities,3 are used in the select to work,  the other 2 is just used for the card
+input_text.selectedstreamname
+input_text.selectedstreamurl
+input_text.selected_media_player
+
+
+
 
 here is the code used to setup the 2 tamplate selects, this goes into your configuration file.. you maye want to spit your configuration file to keep.it clean,  see homeassistant docs how to do it
 
