@@ -11,11 +11,11 @@ the second select is hardcoded for live streams available on yiddish24
 
 the select itself acts as the automation 
 
-the seleatct uses templates to set the stream url titles and artwork
+the select uses templates to set the stream url titles and artwork
 
 we then  uses some Helper inputs to save some info 
 
-for cards we use auto entity cards that dynamically shows all players playing 
+for cards we use auto entity cards that dynamically shows all players playing.
 
 custum cards I have used for this setup are all avaliable in hacs, you don't need the custom cards only if you use the card I have attached, but the core automations worked without it.
 
