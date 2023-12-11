@@ -236,5 +236,12 @@ layout:
   margin: 0px 0px 0px 0px
   card_margin: 0
 ```
+# Screenshots 
+1 payer on full-cover
+
+![alt text](https://imgpile.com/images/GEFwMx.jpg)
+
+2 player playing , cover 
+![alt text](https://imgpile.com/images/GEFUIL.jpg)
 
        
