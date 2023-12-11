@@ -18,11 +18,11 @@ custum cards I have used for this setup are all avaliable in hacs
 
 
 here are the list if cards used
-```
-+auto-entities
-+layout-card
-+Mini Media Player
-```
+
++ auto-entities
++ layout-card
++ Mini Media Player
+
 
 add 5 Helper entities,3 are used in the select to work,  the other 2 is just used for the card
 ```
