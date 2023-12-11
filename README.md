@@ -4,7 +4,7 @@ sharing my setup of streaming from HA online streams with tamplate selects
 
 I have only tested this on Google speakers and chromcast audio,  but should work on any speaker media player that allows steaming from a url.
 
-the main setup use 2  tampalte selects one for listing all available speakers excluding the unavailable and the unknown, the dropdown options are displaying the friendly_name and the status of ranch media_player 
+the main setup use 2  tampalte selects one for listing all available speakers excluding the unavailable and the unknown, the dropdown options are displaying the friendly_name and the status of each media_player 
 
 
 the second select is hardcoded for live streams available on yiddish24
