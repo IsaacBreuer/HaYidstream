@@ -175,4 +175,57 @@ template:
                         entity_id: "{{ states('input_text.selected_media_player')}}"
 ```
 
+by now this should work, use the 2 selects to select  a player and a steam and if input_boolean.playityes is on it will play.
+
+
+if you want my dynamic cards here is what i have used.
+
+```
+type: custom:layout-card
+layout_type: custom:horizontal-layout
+cards:
+  - type: entities
+    entities:
+      - entity: select.available_media_players
+        name: 'וועל אויס א ספיקער '
+        icon: mdi:speaker-wireless
+      - entity: select.select_stream
+        name: וועל אויס מוזיק טשענעל
+        icon: mdi:music
+      - entity: input_boolean.playityes
+        name: שפיל
+      - entity: input_select.cover_art_option
+    title: קול מבשר לייוו מוזיק
+  - type: custom:auto-entities
+    show_empty: true
+    card:
+      type: entities
+      title: אלע שפילענדע ספיקערס
+    filter:
+      template: |-
+        {% set speakers = states.media_player
+          | rejectattr('state','in',['unavailable','unknown','off'])
+          | list%}
+        {% set coverartoption = states('input_select.cover_art_option') %}
+        [ {% for speaker in expand(speakers)  %}
+
+
+            {{
+               {
+                 'type': 'custom:mini-media-player',
+                 'entity' : speaker.entity_id,
+                 'artwork' : coverartoption,
+                 'group': false,
+                 'hide': {
+                   'power': false,
+                   'icon': true
+                 }
+               }
+            }},
+        {%- endfor %} ]
+layout:
+  margin: 0px 0px 0px 0px
+  card_margin: 0
+```
+
 note if you already have something in your configuration under tamplate,  don't repeate the word tamplate,  Judy put the 2 selects under the parent tamplate node       
