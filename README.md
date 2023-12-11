@@ -25,11 +25,11 @@ here are the list if cards used
 
 
 add 5 Helper entities,3 are used in the select to work,  the other 2 is just used for the card
-```
-+input_text.selectedstreamname
-+input_text.selectedstreamurl
-+input_text.selected_media_player
-```
+
++ input_text.selectedstreamname
++ input_text.selectedstreamurl
++ input_text.selected_media_player
+
 
 
 
