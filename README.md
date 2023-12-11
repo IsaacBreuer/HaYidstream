@@ -16,7 +16,11 @@ for cards we use auto entity cards that dynamically shows all players playing
 
 custum cards I have used for this setup are all avaliable in hacs
 
+
 here are the list if cards used
 
+auto-entities
+layout-card
+Mini Media Player
 
 
