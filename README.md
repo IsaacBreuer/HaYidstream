@@ -1,6 +1,7 @@
 # HaYidstream
 
 sharing my setup of streaming from HA online streams with tamplate selects 
+
 I have only tested this on Google speakers and chromcast audio,  but should work on any speaker media player that allows steaming from a url.
 
 the main setup use 2  tampalte selects one for listing all available speakers excluding the unavailable and the unknown, the dropdown options are displaying the friendly_name and the status of ranch media_player 
@@ -40,7 +41,8 @@ add 5 Helper entities,3 are used in the select to work,  the other 2 is just use
 
 
 
-here is the code used to setup the 2 tamplate selects, this goes into your configuration file.. you maye want to spit your configuration file to keep.it clean,  see homeassistant docs how to do it
+Here is the code used to setup the 2 tamplate selects, this goes into your configuration file..
+You may want to spit your configuration file to keep it clean,  see homeassistant docs how to do it
 
 ```
 template:
