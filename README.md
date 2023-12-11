@@ -28,8 +28,8 @@ here are the list if cards used
 add 5 Helper entities,3 are used in the select to work,  the other 2 is just used for the card
 
 + input_text (text helper) named selectedstreamname
-+ input_text (text helper) selectedstreamurl
-+ input_text (text helper) selected_media_player
++ input_text (text helper) named selectedstreamurl
++ input_text (text helper) named selected_media_player
 + input_boolean.  (toggle helper) named playityes
 + then add a select (dropdown helper) named input_select.cover_art_option add the following options full-cover-fit, full-cover, cover,none
 
