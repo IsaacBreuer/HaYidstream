@@ -6,7 +6,6 @@ I have only tested this on Google speakers and chromcast audio,  but should work
 
 the main setup use 2  tampalte selects one for listing all available speakers excluding the unavailable and the unknown, the dropdown options are displaying the friendly_name and the status of ranch media_player 
 
-the automation runs from within the select itself no need separate automation.
 
 the second select is hardcoded for live streams available on yiddish24
 
