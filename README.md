@@ -27,11 +27,11 @@ here are the list if cards used
 
 add 5 Helper entities,3 are used in the select to work,  the other 2 is just used for the card
 
-+ input_text.selectedstreamname
-+ input_text.selectedstreamurl
-+ input_text.selected_media_player
-+ input_boolean.playityes
-+ then add a select Helper (dropdown) named input_select.cover_art_option add the following options full-cover-fit, full-cover, cover,none
++ input_text (text helper) named selectedstreamname
++ input_text (text helper) selectedstreamurl
++ input_text (text helper) selected_media_player
++ input_boolean.  (toggle helper) named playityes
++ then add a select (dropdown helper) named input_select.cover_art_option add the following options full-cover-fit, full-cover, cover,none
 
   the last select is just used in the card to specify how you want the cover art to appear on the mini player card
 
