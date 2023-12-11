@@ -175,6 +175,10 @@ template:
                       target:
                         entity_id: "{{ states('input_text.selected_media_player')}}"
 ```
+note! if you already have something in your configuration under tamplate,  don't repeate the word tamplate,  Judy put the 2 selects under the parent tamplate node
+
+check your configuration 
+reload all yaml from developer tolls 
 
 by now this should work, use the 2 selects to select  a player and a steam and if input_boolean.playityes is on it will play.
 
@@ -229,4 +233,4 @@ layout:
   card_margin: 0
 ```
 
-note if you already have something in your configuration under tamplate,  don't repeate the word tamplate,  Judy put the 2 selects under the parent tamplate node       
+       
