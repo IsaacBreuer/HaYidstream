@@ -14,7 +14,7 @@ we then  uses some Helper inputs to save some info
 
 for cards we use auto entity cards that dynamically shows all players playing 
 
-custum cards I have used for this setup are all avaliable in hacs
+custum cards I have used for this setup are all avaliable in hacs, you don't need the custom cards only if you use the card I have attached, but the core automations worked without it.
 
 
 here are the list if cards used
