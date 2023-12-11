@@ -24,7 +24,7 @@ layout-card
 Mini Media Player
 
 
-here is the code used to setup the 2 tamplate selects
+here is the code used to setup the 2 tamplate selects, this goes into your configuration file.. you maye want to spit your configuration file to keep.it clean,  see homeassistant docs how to do it
 
 ```
 template:
