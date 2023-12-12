@@ -62,7 +62,6 @@ template:
        select_option:
          - variables:
              entity: >
-             entity: >
                  {{ states.media_player   
                  | rejectattr('state','in',['unavailable','unknown'])
                  | selectattr('name', 'eq', option.split(' ~ ')[0])
