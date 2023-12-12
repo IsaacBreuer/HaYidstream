@@ -1,5 +1,5 @@
 # HaYidstream
-
+Update 2
 sharing my setup of streaming from HA online streams with tamplate selects 
 
 I have only tested this on Google speakers and chromcast audio,  but should work on any speaker media player that allows steaming from a url.
