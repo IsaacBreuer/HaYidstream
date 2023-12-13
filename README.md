@@ -38,8 +38,7 @@ add 5 Helper entities,3 are used in the select to work,  the other 2 is just use
 
   the last select is just used in the card to specify how you want the cover art to appear on the mini player card
 
-# note changes to of options used in input_select.cover_art_option from previus versions
-
+`	note changes to of options used in input_select.cover_art_option from previus versions `	
 
 
 Here is the code used to setup the 2 tamplate selects, this goes into your configuration file..
