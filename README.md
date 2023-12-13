@@ -215,7 +215,7 @@ cards:
     filter:
       template: |-
         {% set speakers = states.media_player
-          | rejectattr('state','in',['unavailable','unknown','off'])
+          | rejectattr('state','in',['unavailable','unknown','off','idle','standby'])
           | list%}
         {% set coverartoption = states('input_select.cover_art_option') %}
         [ {% for speaker in expand(speakers)  %}
