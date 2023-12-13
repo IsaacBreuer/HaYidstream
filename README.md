@@ -68,8 +68,10 @@ template:
        select_option:
          - variables:
              entity: >
-                {{ states.media_player | selectattr('name', 'eq', option.split(' ~ ')[0])
-                |map(attribute='entity_id')|join }}
+                 {{ states.media_player   
+                 | rejectattr('state','in',['unavailable','unknown'])
+                 | selectattr('name', 'eq', option.split(' ~ ')[0])
+                 |map(attribute='entity_id')|first }}
          - service: input_text.set_value
            target:
              entity_id: input_text.selected_media_player 
