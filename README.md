@@ -223,7 +223,7 @@ cards:
         {% set speakers = states.media_player
           | selectattr('state','in',['playing','pjaused'])
           | list%}
-          {% set payertouse = 'custom:mini-media-player' %}
+          {% set playertouse = 'custom:mini-media-player' %}
           {% if states('input_select.cover_art_option')=="Built-in player" %}
           {% set playertouse = 'custom:hui-media-control-card' %}
           {%endif%}
