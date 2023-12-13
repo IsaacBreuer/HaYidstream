@@ -34,7 +34,7 @@ add 5 Helper entities,3 are used in the select to work,  the other 2 is just use
 + input_text (text helper) named selectedstreamurl
 + input_text (text helper) named selected_media_player
 + input_boolean.  (toggle helper) named playityes
-+ then add a input_select (dropdown helper) named cover_art_option add the following options full-cover-fit, full-cover, cover, none
++ then add a input_select (dropdown helper) named cover_art_option add the following options full-cover-fit, full-cover, cover, icon, Built-in player
 
   the last select is just used in the card to specify how you want the cover art to appear on the mini player card
 
@@ -56,7 +56,13 @@ template:
         | list%}
          {% set ns = namespace(result=[]) %}
         {% for s in x %}
+        
+        {%  if  s.attributes.supported_features|bitwise_and(512) %}
         {% set ns.result= ns.result+[[s.name,s.state] | join (' ~ ')] %}
+        {% endif %}
+  
+  
+        
         {% endfor %}
         {{ns.result }}
        select_option:
@@ -215,28 +221,49 @@ cards:
     filter:
       template: |-
         {% set speakers = states.media_player
-          | rejectattr('state','in',['unavailable','unknown','off','idle','standby'])
+          | selectattr('state','in',['playing','pjaused'])
           | list%}
-        {% set coverartoption = states('input_select.cover_art_option') %}
-        [ {% for speaker in expand(speakers)  %}
+          {% set payertouse = 'custom:mini-media-player' %}
+          {% if states('input_select.cover_art_option')=="Built-in player" %}
+          {% set playertouse = 'custom:hui-media-control-card' %}
+          {%endif%}
+           
 
+
+        [ {% for speaker in expand(speakers)  %}
+        {% if states('input_select.cover_art_option')=="icon" %}
 
             {{
                {
-                 'type': 'custom:mini-media-player',
+                 'type': playertouse,
                  'entity' : speaker.entity_id,
-                 'artwork' : coverartoption,
                  'group': false,
-                 'hide': {
+                 'hide': { 
                    'power': false,
-                   'icon': true
+                   'icon': false
                  }
                }
-            }},
+            }}
+        {%else%}
+            {{
+               {
+                 'type': playertouse,
+                 'entity' : speaker.entity_id,
+                 'artwork' : states('input_select.cover_art_option'),
+                 'group': false,
+                 'hide': { 
+                   'power': false,
+                   'icon': not states('input_select.cover_art_option')=="none"
+                 }
+               }
+            }}
+
+         {% endif %}   
         {%- endfor %} ]
 layout:
   margin: 0px 0px 0px 0px
   card_margin: 0
+
 ```
 # Screenshots 
 
