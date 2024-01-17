@@ -242,7 +242,7 @@ cards:
                    'icon': false
                  }
                }
-            }}
+            }},
         {%else%}
             {{
                {
@@ -255,7 +255,7 @@ cards:
                    'icon': not states('input_select.cover_art_option')=="none"
                  }
                }
-            }}
+            }},
 
          {% endif %}   
         {%- endfor %} ]
