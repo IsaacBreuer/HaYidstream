@@ -1,5 +1,7 @@
 # HaYidstream
-Update 3 added shia 24
+Update 3 added shia 24  Just note shira server is very slow so it will buffer like 10 seconds before starting the stream
+
+
 sharing my setup of streaming from HA online streams with tamplate selects 
 
 I have only tested this on Google speakers and chromcast audio,  but should work on any speaker media player that allows steaming from a url.
