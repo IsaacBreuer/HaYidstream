@@ -239,13 +239,10 @@ cards:
           | selectattr('state','in',['playing','paused'])
           | rejectattr('entity_id','in',integration_entities('Music Assistant'))
           | selectattr('attributes.media_content_id', 'defined') 
-          | selectattr('attributes.media_content_id','contains', 'https://') 
+          | selectattr('attributes.media_content_id','contains', 'https') 
           | list%}
-          {% set playertouse = 'custom:mini-media-player' %}
-          {% if states('input_select.cover_art_option')=="Built-in player" %}
-          {% set playertouse = 'custom:hui-media-control-card' %}
-          {%endif%}
-         
+          {% set playertouse = 'custom:hui-media-control-card' if states('input_select.cover_art_option')=="Built-in player" else 'custom:mini-media-player' %}
+
         [ {% for speaker in expand(speakers)  %}
         {% if states('input_select.cover_art_option')=="icon" %}
 
