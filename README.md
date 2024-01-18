@@ -1,5 +1,5 @@
 # HaYidstream
-Update 2
+Update 3 added shia 24
 sharing my setup of streaming from HA online streams with tamplate selects 
 
 I have only tested this on Google speakers and chromcast audio,  but should work on any speaker media player that allows steaming from a url.
@@ -51,6 +51,7 @@ template:
        state: "{{state_attr( states('input_text.selected_media_player'),'friendly_name') }} ~ {{states( states('input_text.selected_media_player') )}}"
        options: >
         {% set x = states.media_player
+        |rejectattr('entity_id', 'in',integration_entities('Music Assistant'))
         | rejectattr('state','in',['unavailable','unknown'])
         | list%}
          {% set ns = namespace(result=[]) %}
@@ -67,7 +68,8 @@ template:
        select_option:
          - variables:
              entity: >
-                 {{ states.media_player   
+                 {{ states.media_player
+                 |rejectattr('entity_id', 'in',integration_entities('Music Assistant'))
                  | rejectattr('state','in',['unavailable','unknown'])
                  | selectattr('name', 'eq', option.split(' ~ ')[0])
                  |map(attribute='entity_id')|first }}
@@ -78,45 +80,52 @@ template:
               value: "{{ entity }}"
   - select:
      - name: "Select Stream"  
-       options: "{{['אלגעמיינע קאלעקשאן','רואיגע מוזיק','נגינה אן מוזיק','חזנות קאלעקשאן','חתונה פרייליך קאלעקשאן','חתונה צווייטע טאנץ קאלעקשאן','חתונה קומזיץ קאלעקשאן','שבת קאלעקשאן','מוצאי שבת קאלעקשאן','חנוכה קאלעקשאן','פורים קאלעקשאן','פסח קאלעקשאן','סוכות','ימים נוראים','סאטמאר','מאטי אילאוויטש','באבוב','שבועות','מרדכי בן דוד','אברהם פריעד','ליפא שמעלצער','מיכאל שניצלער','משה גאלדמאן','אייזיק האניג','קינדער קווייער','לחיים','בעלזא','וויזניץ','סקולען','ל״ג בעומר','מוד׳זיץ','בנציון שענקער','אידישע ניגונים קאלעקשאן']}}"
+       options: "{{['אלגעמיינע קאלעקשאן','רואיגע מוזיק','נגינה אן מוזיק','חזנות קאלעקשאן','חתונה פרייליך קאלעקשאן','חתונה צווייטע טאנץ קאלעקשאן','חתונה קומזיץ קאלעקשאן','שבת קאלעקשאן','מוצאי שבת קאלעקשאן','חנוכה קאלעקשאן','פורים קאלעקשאן','פסח קאלעקשאן','סוכות','ימים נוראים','סאטמאר','מאטי אילאוויטש','באבוב','שבועות','מרדכי בן דוד','אברהם פריעד','ליפא שמעלצער','מיכאל שניצלער','משה גאלדמאן','אייזיק האניג','קינדער קווייער','לחיים','בעלזא','וויזניץ','סקולען','ל״ג בעומר','מוד׳זיץ','בנציון שענקער','אידישע ניגונים קאלעקשאן','שירה מיקס','שירה פרייליך','שירה רילעקס','שירה וואקאל','שירה שבת','שירה פסח','שירה ימים נוראים']}}"
        state: "{{ states('input_text.selectedstreamname') }}"
        select_option:
          - variables:
              mystream: >
                    {% set mapper = {
-                    'אלגעמיינע קאלעקשאן' : '1',
-                    'רואיגע מוזיק' : '11',
-                    'נגינה אן מוזיק' : '3',
-                    'חזנות קאלעקשאן' : '5',
-                    'חתונה פרייליך קאלעקשאן' : '8',
-                    'חתונה צווייטע טאנץ קאלעקשאן' : '10',
-                    'חתונה קומזיץ קאלעקשאן' : '9',
-                    'שבת קאלעקשאן' : '2',
-                    'מוצאי שבת קאלעקשאן' : '6',
-                    'חנוכה קאלעקשאן' : '4',
-                    'פורים קאלעקשאן' : '12',
-                    'פסח קאלעקשאן' : '13',
-                    'סוכות' : '17',
-                    'ימים נוראים' : '16',
-                    'סאטמאר' : '35',
-                    'מאטי אילאוויטש' : '34',
-                    'באבוב' : '31',
-                    'שבועות' : '19',
-                    'מרדכי בן דוד' : '20',
-                    'אברהם פריעד' : '21',
-                    'ליפא שמעלצער' : '22',
-                    'מיכאל שניצלער' : '23',
-                    'משה גאלדמאן' : '24',
-                    'אייזיק האניג' : '25',
-                    'קינדער קווייער' : '26',
-                    'לחיים' : '27',
-                    'בעלזא' : '28',
-                    'וויזניץ' : '29',
-                    'סקולען' : '30',
-                    'ל״ג בעומר' : '14',
-                    'מוד׳זיץ' : '33',
-                    'בנציון שענקער' : '32',
-                    'אידישע ניגונים קאלעקשאן' : '7'
+                    'אלגעמיינע קאלעקשאן':'1^yid',
+                    'רואיגע מוזיק':'11^yid',
+                    'נגינה אן מוזיק':'3^yid',
+                    'חזנות קאלעקשאן':'5^yid',
+                    'חתונה פרייליך קאלעקשאן':'8^yid',
+                    'חתונה צווייטע טאנץ קאלעקשאן':'10^yid',
+                    'חתונה קומזיץ קאלעקשאן':'9^yid',
+                    'שבת קאלעקשאן':'2^yid',
+                    'מוצאי שבת קאלעקשאן':'6^yid',
+                    'חנוכה קאלעקשאן':'4^yid',
+                    'פורים קאלעקשאן':'12^yid',
+                    'פסח קאלעקשאן':'13^yid',
+                    'סוכות':'17^yid',
+                    'ימים נוראים':'16^yid',
+                    'סאטמאר':'35^yid',
+                    'מאטי אילאוויטש':'34^yid',
+                    'באבוב':'31^yid',
+                    'שבועות':'19^yid',
+                    'מרדכי בן דוד':'20^yid',
+                    'אברהם פריעד':'21^yid',
+                    'ליפא שמעלצער':'22^yid',
+                    'מיכאל שניצלער':'23^yid',
+                    'משה גאלדמאן':'24^yid',
+                    'אייזיק האניג':'25^yid',
+                    'קינדער קווייער':'26^yid',
+                    'לחיים':'27^yid',
+                    'בעלזא':'28^yid',
+                    'וויזניץ':'29^yid',
+                    'סקולען':'30^yid',
+                    'ל״ג בעומר':'14^yid',
+                    'מוד׳זיץ':'33^yid',
+                    'בנציון שענקער':'32^yid',
+                    'אידישע ניגונים קאלעקשאן':'7^yid',
+                    'שירה מיקס':'10^shi',
+                    'שירה פרייליך':'2^shi',
+                    'שירה רילעקס':'14^shi',
+                    'שירה וואקאל':'8^shi',
+                    'שירה שבת':'3^shi',
+                    'שירה פסח':'13^shi',
+                    'שירה ימים נוראים':'7^shi'
                      }%}
                      {{ mapper.get(option) }}
                      
@@ -138,39 +147,47 @@ template:
                     - variables:
                         mypicture: >
                             {% set mapper2 = {                   
-                                '1' : 'https://cloudfront.yiddish24.com/%D7%90%D7%9C%D7%92%D7%A2%D7%9E%D7%99%D7%99%D7%A0%D7%A2-%D7%A7%D7%90%D7%9C%D7%A2%D7%A7%D7%A9%D7%90%D7%9F_1662090580.',
-                                '11' : 'https://cloudfront.yiddish24.com/%D7%A8%D7%95%D7%90%D7%99%D7%92%D7%A2-%D7%9E%D7%95%D7%96%D7%99%D7%A7_1662090553.',
-                                '3' : 'https://cloudfront.yiddish24.com/%D7%95%D7%95%D7%90%D7%A7%D7%90%D7%9C%D7%99%D7%A9_1662090512.',
-                                '5' : 'https://cloudfront.yiddish24.com/%D7%97%D7%96%D7%A0%D7%95%D7%AA_1662090478.',
-                                '8' : 'https://cloudfront.yiddish24.com/%D7%97%D7%AA%D7%95%D7%A0%D7%94-%D7%A4%D7%A8%D7%99%D7%99%D7%9C%D7%99%D7%9A_1662090439.',
-                                '10' : 'https://cloudfront.yiddish24.com/%D7%A6%D7%95%D7%95%D7%99%D7%99%D7%98%D7%A2-%D7%98%D7%90%D7%A0%D7%A5_1662090413.',
-                                '9' : 'https://cloudfront.yiddish24.com/%D7%A7%D7%95%D7%9E%D7%96%D7%99%D7%A5_1662096447.',
-                                '2' : 'https://cloudfront.yiddish24.com/%D7%A9%D7%91%D7%AA_1662090342.',
-                                '6' : 'https://cloudfront.yiddish24.com/%D7%9E%D7%95%D7%A6%D7%90%D7%99-%D7%A9%D7%91%D7%AA_1662090315.',
-                                '4' : 'https://cloudfront.yiddish24.com/%D7%97%D7%A0%D7%95%D7%9B%D7%94_1662090285.',
-                                '12' : 'https://cloudfront.yiddish24.com/%D7%A4%D7%95%D7%A8%D7%99%D7%9D_1662090243.',
-                                '13' : 'https://cloudfront.yiddish24.com/pesach_1661965660.jpg',
-                                '17' : 'https://cloudfront.yiddish24.com/%D7%A1%D7%95%D7%9B%D7%95%D7%AA_1662096684.',
-                                '16' : 'https://cloudfront.yiddish24.com/%D7%99%D7%9E%D7%99%D7%9D-%D7%A0%D7%95%D7%A8%D7%90%D7%99%D7%9D_1662940956.',
-                                '35' : 'https://cloudfront.yiddish24.com/%D7%A1%D7%90%D7%98%D7%9E%D7%90%D7%A8_1662941031.',
-                                '34' : 'https://cloudfront.yiddish24.com/%D7%9E%D7%90%D7%98%D7%99-%D7%90%D7%99%D7%9C%D7%90%D7%95%D7%95%D7%99%D7%98%D7%A9_1662941151.',
-                                '31' : 'https://cloudfront.yiddish24.com/%D7%91%D7%90%D7%91%D7%95%D7%91_1662941200.',
-                                '19' : 'https://cloudfront.yiddish24.com/%D7%A9%D7%91%D7%95%D7%A2%D7%95%D7%AA_1662096087.',
-                                '20' : 'https://cloudfront.yiddish24.com/%D7%9E%D7%A8%D7%93%D7%9B%D7%99-%D7%91%D7%9F-%D7%93%D7%95%D7%93_1662096107.jpg',
-                                '21' : 'https://cloudfront.yiddish24.com/%D7%90%D7%91%D7%A8%D7%94%D7%9D-%D7%A4%D7%A8%D7%99%D7%A2%D7%93_1666716990.',
-                                '22' : 'https://cloudfront.yiddish24.com/%D7%9C%D7%99%D7%A4%D7%90-%D7%A9%D7%9E%D7%A2%D7%9C%D7%A6%D7%A2%D7%A8_1666645561.',
-                                '23' : 'https://cloudfront.yiddish24.com/%D7%9E%D7%99%D7%9B%D7%90%D7%9C-%D7%A9%D7%A0%D7%99%D7%A6%D7%9C%D7%A2%D7%A8_1662096167.',
-                                '24' : 'https://cloudfront.yiddish24.com/%D7%9E%D7%A9%D7%94-%D7%92%D7%90%D7%9C%D7%93%D7%9E%D7%90%D7%9F_1662096198.',
-                                '25' : 'https://cloudfront.yiddish24.com/%D7%90%D7%99%D7%99%D7%96%D7%99%D7%A7-%D7%94%D7%90%D7%A0%D7%99%D7%92_1662096204.',
-                                '26' : 'https://cloudfront.yiddish24.com/%D7%A7%D7%99%D7%A0%D7%93%D7%A2%D7%A8-%D7%A7%D7%95%D7%95%D7%99%D7%99%D7%A2%D7%A8_1666645700.',
-                                '27' : 'https://cloudfront.yiddish24.com/%D7%9C%D7%97%D7%99%D7%99%D7%9D_1662096216.',
-                                '28' : 'https://cloudfront.yiddish24.com/%D7%91%D7%A2%D7%9C%D7%96%D7%90_1662096224.',
-                                '29' : 'https://cloudfront.yiddish24.com/%D7%95%D7%95%D7%99%D7%96%D7%A0%D7%99%D7%A5_1662096229.',
-                                '30' : 'https://cloudfront.yiddish24.com/%D7%A1%D7%A7%D7%95%D7%9C%D7%A2%D7%9F_1662096235.',
-                                '14' : 'https://cloudfront.yiddish24.com/%D7%9C%D7%B4%D7%92-%D7%91%D7%A2%D7%95%D7%9E%D7%A8_1666645733.',
-                                '33' : 'https://cloudfront.yiddish24.com/%D7%9E%D7%95%D7%93%D7%B3%D7%96%D7%99%D7%A5_1662941272.',
-                                '32' : 'https://cloudfront.yiddish24.com/%D7%91%D7%A0%D7%A6%D7%99%D7%95%D7%9F-%D7%A9%D7%A2%D7%A0%D7%A7%D7%A2%D7%A8_1662941321.',
-                                '7' : 'https://cloudfront.yiddish24.com/%D7%90%D7%99%D7%93%D7%99%D7%A9-%D7%A7%D7%90%D7%9C%D7%A2%D7%A7%D7%A9%D7%90%D7%9F_1666645673.'
+                                '1^yid' : 'https://cloudfront.yiddish24.com/%D7%90%D7%9C%D7%92%D7%A2%D7%9E%D7%99%D7%99%D7%A0%D7%A2-%D7%A7%D7%90%D7%9C%D7%A2%D7%A7%D7%A9%D7%90%D7%9F_1662090580.',
+                                '11^yid' : 'https://cloudfront.yiddish24.com/%D7%A8%D7%95%D7%90%D7%99%D7%92%D7%A2-%D7%9E%D7%95%D7%96%D7%99%D7%A7_1662090553.',
+                                '3^yid' : 'https://cloudfront.yiddish24.com/%D7%95%D7%95%D7%90%D7%A7%D7%90%D7%9C%D7%99%D7%A9_1662090512.',
+                                '5^yid' : 'https://cloudfront.yiddish24.com/%D7%97%D7%96%D7%A0%D7%95%D7%AA_1662090478.',
+                                '8^yid' : 'https://cloudfront.yiddish24.com/%D7%97%D7%AA%D7%95%D7%A0%D7%94-%D7%A4%D7%A8%D7%99%D7%99%D7%9C%D7%99%D7%9A_1662090439.',
+                                '10^yid' : 'https://cloudfront.yiddish24.com/%D7%A6%D7%95%D7%95%D7%99%D7%99%D7%98%D7%A2-%D7%98%D7%90%D7%A0%D7%A5_1662090413.',
+                                '9^yid' : 'https://cloudfront.yiddish24.com/%D7%A7%D7%95%D7%9E%D7%96%D7%99%D7%A5_1662096447.',
+                                '2^yid' : 'https://cloudfront.yiddish24.com/%D7%A9%D7%91%D7%AA_1662090342.',
+                                '6^yid' : 'https://cloudfront.yiddish24.com/%D7%9E%D7%95%D7%A6%D7%90%D7%99-%D7%A9%D7%91%D7%AA_1662090315.',
+                                '4^yid' : 'https://cloudfront.yiddish24.com/%D7%97%D7%A0%D7%95%D7%9B%D7%94_1662090285.',
+                                '12^yid' : 'https://cloudfront.yiddish24.com/%D7%A4%D7%95%D7%A8%D7%99%D7%9D_1662090243.',
+                                '13^yid' : 'https://cloudfront.yiddish24.com/pesach_1661965660.jpg',
+                                '17^yid' : 'https://cloudfront.yiddish24.com/%D7%A1%D7%95%D7%9B%D7%95%D7%AA_1662096684.',
+                                '16^yid' : 'https://cloudfront.yiddish24.com/%D7%99%D7%9E%D7%99%D7%9D-%D7%A0%D7%95%D7%A8%D7%90%D7%99%D7%9D_1662940956.',
+                                '35^yid' : 'https://cloudfront.yiddish24.com/%D7%A1%D7%90%D7%98%D7%9E%D7%90%D7%A8_1662941031.',
+                                '34^yid' : 'https://cloudfront.yiddish24.com/%D7%9E%D7%90%D7%98%D7%99-%D7%90%D7%99%D7%9C%D7%90%D7%95%D7%95%D7%99%D7%98%D7%A9_1662941151.',
+                                '31^yid' : 'https://cloudfront.yiddish24.com/%D7%91%D7%90%D7%91%D7%95%D7%91_1662941200.',
+                                '19^yid' : 'https://cloudfront.yiddish24.com/%D7%A9%D7%91%D7%95%D7%A2%D7%95%D7%AA_1662096087.',
+                                '20^yid' : 'https://cloudfront.yiddish24.com/%D7%9E%D7%A8%D7%93%D7%9B%D7%99-%D7%91%D7%9F-%D7%93%D7%95%D7%93_1662096107.jpg',
+                                '21^yid' : 'https://cloudfront.yiddish24.com/%D7%90%D7%91%D7%A8%D7%94%D7%9D-%D7%A4%D7%A8%D7%99%D7%A2%D7%93_1666716990.',
+                                '22^yid' : 'https://cloudfront.yiddish24.com/%D7%9C%D7%99%D7%A4%D7%90-%D7%A9%D7%9E%D7%A2%D7%9C%D7%A6%D7%A2%D7%A8_1666645561.',
+                                '23^yid' : 'https://cloudfront.yiddish24.com/%D7%9E%D7%99%D7%9B%D7%90%D7%9C-%D7%A9%D7%A0%D7%99%D7%A6%D7%9C%D7%A2%D7%A8_1662096167.',
+                                '24^yid' : 'https://cloudfront.yiddish24.com/%D7%9E%D7%A9%D7%94-%D7%92%D7%90%D7%9C%D7%93%D7%9E%D7%90%D7%9F_1662096198.',
+                                '25^yid' : 'https://cloudfront.yiddish24.com/%D7%90%D7%99%D7%99%D7%96%D7%99%D7%A7-%D7%94%D7%90%D7%A0%D7%99%D7%92_1662096204.',
+                                '26^yid' : 'https://cloudfront.yiddish24.com/%D7%A7%D7%99%D7%A0%D7%93%D7%A2%D7%A8-%D7%A7%D7%95%D7%95%D7%99%D7%99%D7%A2%D7%A8_1666645700.',
+                                '27^yid' : 'https://cloudfront.yiddish24.com/%D7%9C%D7%97%D7%99%D7%99%D7%9D_1662096216.',
+                                '28^yid' : 'https://cloudfront.yiddish24.com/%D7%91%D7%A2%D7%9C%D7%96%D7%90_1662096224.',
+                                '29^yid' : 'https://cloudfront.yiddish24.com/%D7%95%D7%95%D7%99%D7%96%D7%A0%D7%99%D7%A5_1662096229.',
+                                '30^yid' : 'https://cloudfront.yiddish24.com/%D7%A1%D7%A7%D7%95%D7%9C%D7%A2%D7%9F_1662096235.',
+                                '14^yid' : 'https://cloudfront.yiddish24.com/%D7%9C%D7%B4%D7%92-%D7%91%D7%A2%D7%95%D7%9E%D7%A8_1666645733.',
+                                '33^yid' : 'https://cloudfront.yiddish24.com/%D7%9E%D7%95%D7%93%D7%B3%D7%96%D7%99%D7%A5_1662941272.',
+                                '32^yid' : 'https://cloudfront.yiddish24.com/%D7%91%D7%A0%D7%A6%D7%99%D7%95%D7%9F-%D7%A9%D7%A2%D7%A0%D7%A7%D7%A2%D7%A8_1662941321.',
+                                '7^yid'  : 'https://cloudfront.yiddish24.com/%D7%90%D7%99%D7%93%D7%99%D7%A9-%D7%A7%D7%90%D7%9C%D7%A2%D7%A7%D7%A9%D7%90%D7%9F_1666645673.',
+                                '10^shi' :'https://shira24.com/img/shira-logo.png',
+                                '2^shi' :'https://shira24.com/img/shira-logo.png',
+                                '14^shi' :'https://shira24.com/img/shira-logo.png',
+                                '8^shi' :'https://shira24.com/img/shira-logo.png',
+                                '3^shi' :'https://shira24.com/img/shira-logo.png',
+                                '13^shi' :'https://shira24.com/img/shira-logo.png',
+                                '7^shi' :'https://shira24.com/img/shira-logo.png'
+
                             }
                             %}
 
@@ -178,7 +195,7 @@ template:
 
                     - service: media_player.play_media
                       data:
-                        media_content_id: 'https://music.yiddish24.com:5001/{{states("input_text.selectedstreamurl")}}'
+                        media_content_id: '{{ "https://music.yiddish24.com" if  (states("input_text.selectedstreamurl")).split("^")[1] == "yid" else "https://music.shira24.com"}}:5001/{{states("input_text.selectedstreamurl").split("^")[0]}}'
                         media_content_type: Music
                         extra:
                          thumb: "{{mypicture}}"
