@@ -149,46 +149,46 @@ template:
                     - variables:
                         mypicture: >
                             {% set mapper2 = {                   
-                              'yid^1': 'https//cloudfront.yiddish24.com/%D7%90%D7%9C%D7%92%D7%A2%D7%9E%D7%99%D7%99%D7%A0%D7%A2-%D7%A7%D7%90%D7%9C%D7%A2%D7%A7%D7%A9%D7%90%D7%9F_1662090580.',
-                              'yid^11': 'https//cloudfront.yiddish24.com/%D7%A8%D7%95%D7%90%D7%99%D7%92%D7%A2-%D7%9E%D7%95%D7%96%D7%99%D7%A7_1662090553.',
-                              'yid^3': 'https//cloudfront.yiddish24.com/%D7%95%D7%95%D7%90%D7%A7%D7%90%D7%9C%D7%99%D7%A9_1662090512.',
-                              'yid^5': 'https//cloudfront.yiddish24.com/%D7%97%D7%96%D7%A0%D7%95%D7%AA_1662090478.',
-                              'yid^8': 'https//cloudfront.yiddish24.com/%D7%97%D7%AA%D7%95%D7%A0%D7%94-%D7%A4%D7%A8%D7%99%D7%99%D7%9C%D7%99%D7%9A_1662090439.',
-                              'yid^10': 'https//cloudfront.yiddish24.com/%D7%A6%D7%95%D7%95%D7%99%D7%99%D7%98%D7%A2-%D7%98%D7%90%D7%A0%D7%A5_1662090413.',
-                              'yid^9': 'https//cloudfront.yiddish24.com/%D7%A7%D7%95%D7%9E%D7%96%D7%99%D7%A5_1662096447.',
-                              'yid^2': 'https//cloudfront.yiddish24.com/%D7%A9%D7%91%D7%AA_1662090342.',
-                              'yid^6': 'https//cloudfront.yiddish24.com/%D7%9E%D7%95%D7%A6%D7%90%D7%99-%D7%A9%D7%91%D7%AA_1662090315.',
-                              'yid^4': 'https//cloudfront.yiddish24.com/%D7%97%D7%A0%D7%95%D7%9B%D7%94_1662090285.',
-                              'yid^12': 'https//cloudfront.yiddish24.com/%D7%A4%D7%95%D7%A8%D7%99%D7%9D_1662090243.',
-                              'yid^13': 'https//cloudfront.yiddish24.com/pesach_1661965660.jpg',
-                              'yid^17': 'https//cloudfront.yiddish24.com/%D7%A1%D7%95%D7%9B%D7%95%D7%AA_1662096684.',
-                              'yid^16': 'https//cloudfront.yiddish24.com/%D7%99%D7%9E%D7%99%D7%9D-%D7%A0%D7%95%D7%A8%D7%90%D7%99%D7%9D_1662940956.',
-                              'yid^35': 'https//cloudfront.yiddish24.com/%D7%A1%D7%90%D7%98%D7%9E%D7%90%D7%A8_1662941031.',
-                              'yid^34': 'https//cloudfront.yiddish24.com/%D7%9E%D7%90%D7%98%D7%99-%D7%90%D7%99%D7%9C%D7%90%D7%95%D7%95%D7%99%D7%98%D7%A9_1662941151.',
-                              'yid^31': 'https//cloudfront.yiddish24.com/%D7%91%D7%90%D7%91%D7%95%D7%91_1662941200.',
-                              'yid^19': 'https//cloudfront.yiddish24.com/%D7%A9%D7%91%D7%95%D7%A2%D7%95%D7%AA_1662096087.',
-                              'yid^20': 'https//cloudfront.yiddish24.com/%D7%9E%D7%A8%D7%93%D7%9B%D7%99-%D7%91%D7%9F-%D7%93%D7%95%D7%93_1662096107.jpg',
-                              'yid^21': 'https//cloudfront.yiddish24.com/%D7%90%D7%91%D7%A8%D7%94%D7%9D-%D7%A4%D7%A8%D7%99%D7%A2%D7%93_1666716990.',
-                              'yid^22': 'https//cloudfront.yiddish24.com/%D7%9C%D7%99%D7%A4%D7%90-%D7%A9%D7%9E%D7%A2%D7%9C%D7%A6%D7%A2%D7%A8_1666645561.',
-                              'yid^23': 'https//cloudfront.yiddish24.com/%D7%9E%D7%99%D7%9B%D7%90%D7%9C-%D7%A9%D7%A0%D7%99%D7%A6%D7%9C%D7%A2%D7%A8_1662096167.',
-                              'yid^24': 'https//cloudfront.yiddish24.com/%D7%9E%D7%A9%D7%94-%D7%92%D7%90%D7%9C%D7%93%D7%9E%D7%90%D7%9F_1662096198.',
-                              'yid^25': 'https//cloudfront.yiddish24.com/%D7%90%D7%99%D7%99%D7%96%D7%99%D7%A7-%D7%94%D7%90%D7%A0%D7%99%D7%92_1662096204.',
-                              'yid^26': 'https//cloudfront.yiddish24.com/%D7%A7%D7%99%D7%A0%D7%93%D7%A2%D7%A8-%D7%A7%D7%95%D7%95%D7%99%D7%99%D7%A2%D7%A8_1666645700.',
-                              'yid^27': 'https//cloudfront.yiddish24.com/%D7%9C%D7%97%D7%99%D7%99%D7%9D_1662096216.',
-                              'yid^28': 'https//cloudfront.yiddish24.com/%D7%91%D7%A2%D7%9C%D7%96%D7%90_1662096224.',
-                              'yid^29': 'https//cloudfront.yiddish24.com/%D7%95%D7%95%D7%99%D7%96%D7%A0%D7%99%D7%A5_1662096229.',
-                              'yid^30': 'https//cloudfront.yiddish24.com/%D7%A1%D7%A7%D7%95%D7%9C%D7%A2%D7%9F_1662096235.',
-                              'yid^14': 'https//cloudfront.yiddish24.com/%D7%9C%D7%B4%D7%92-%D7%91%D7%A2%D7%95%D7%9E%D7%A8_1666645733.',
-                              'yid^33': 'https//cloudfront.yiddish24.com/%D7%9E%D7%95%D7%93%D7%B3%D7%96%D7%99%D7%A5_1662941272.',
-                              'yid^32': 'https//cloudfront.yiddish24.com/%D7%91%D7%A0%D7%A6%D7%99%D7%95%D7%9F-%D7%A9%D7%A2%D7%A0%D7%A7%D7%A2%D7%A8_1662941321.',
-                              'yid^7': 'https//cloudfront.yiddish24.com/%D7%90%D7%99%D7%93%D7%99%D7%A9-%D7%A7%D7%90%D7%9C%D7%A2%D7%A7%D7%A9%D7%90%D7%9F_1666645673.',
-                              'shi^10':'https//shira24.com/img/shira-logo.png',
-                              'shi^2':'https//shira24.com/img/shira-logo.png',
-                              'shi^14':'https//shira24.com/img/shira-logo.png',
-                              'shi^8':'https//shira24.com/img/shira-logo.png',
-                              'shi^3':'https//shira24.com/img/shira-logo.png',
-                              'shi^13':'https//shira24.com/img/shira-logo.png',
-                              'shi^7':'https//shira24.com/img/shira-logo.png'
+                              'yid^1': 'https://cloudfront.yiddish24.com/%D7%90%D7%9C%D7%92%D7%A2%D7%9E%D7%99%D7%99%D7%A0%D7%A2-%D7%A7%D7%90%D7%9C%D7%A2%D7%A7%D7%A9%D7%90%D7%9F_1662090580.',
+                              'yid^11': 'https://cloudfront.yiddish24.com/%D7%A8%D7%95%D7%90%D7%99%D7%92%D7%A2-%D7%9E%D7%95%D7%96%D7%99%D7%A7_1662090553.',
+                              'yid^3': 'https://cloudfront.yiddish24.com/%D7%95%D7%95%D7%90%D7%A7%D7%90%D7%9C%D7%99%D7%A9_1662090512.',
+                              'yid^5': 'https://cloudfront.yiddish24.com/%D7%97%D7%96%D7%A0%D7%95%D7%AA_1662090478.',
+                              'yid^8': 'https://cloudfront.yiddish24.com/%D7%97%D7%AA%D7%95%D7%A0%D7%94-%D7%A4%D7%A8%D7%99%D7%99%D7%9C%D7%99%D7%9A_1662090439.',
+                              'yid^10': 'https://cloudfront.yiddish24.com/%D7%A6%D7%95%D7%95%D7%99%D7%99%D7%98%D7%A2-%D7%98%D7%90%D7%A0%D7%A5_1662090413.',
+                              'yid^9': 'https://cloudfront.yiddish24.com/%D7%A7%D7%95%D7%9E%D7%96%D7%99%D7%A5_1662096447.',
+                              'yid^2': 'https://cloudfront.yiddish24.com/%D7%A9%D7%91%D7%AA_1662090342.',
+                              'yid^6': 'https://cloudfront.yiddish24.com/%D7%9E%D7%95%D7%A6%D7%90%D7%99-%D7%A9%D7%91%D7%AA_1662090315.',
+                              'yid^4': 'https://cloudfront.yiddish24.com/%D7%97%D7%A0%D7%95%D7%9B%D7%94_1662090285.',
+                              'yid^12': 'https://cloudfront.yiddish24.com/%D7%A4%D7%95%D7%A8%D7%99%D7%9D_1662090243.',
+                              'yid^13': 'https://cloudfront.yiddish24.com/pesach_1661965660.jpg',
+                              'yid^17': 'https://cloudfront.yiddish24.com/%D7%A1%D7%95%D7%9B%D7%95%D7%AA_1662096684.',
+                              'yid^16': 'https://cloudfront.yiddish24.com/%D7%99%D7%9E%D7%99%D7%9D-%D7%A0%D7%95%D7%A8%D7%90%D7%99%D7%9D_1662940956.',
+                              'yid^35': 'https://cloudfront.yiddish24.com/%D7%A1%D7%90%D7%98%D7%9E%D7%90%D7%A8_1662941031.',
+                              'yid^34': 'https://cloudfront.yiddish24.com/%D7%9E%D7%90%D7%98%D7%99-%D7%90%D7%99%D7%9C%D7%90%D7%95%D7%95%D7%99%D7%98%D7%A9_1662941151.',
+                              'yid^31': 'https://cloudfront.yiddish24.com/%D7%91%D7%90%D7%91%D7%95%D7%91_1662941200.',
+                              'yid^19': 'https://cloudfront.yiddish24.com/%D7%A9%D7%91%D7%95%D7%A2%D7%95%D7%AA_1662096087.',
+                              'yid^20': 'https://cloudfront.yiddish24.com/%D7%9E%D7%A8%D7%93%D7%9B%D7%99-%D7%91%D7%9F-%D7%93%D7%95%D7%93_1662096107.jpg',
+                              'yid^21': 'https://cloudfront.yiddish24.com/%D7%90%D7%91%D7%A8%D7%94%D7%9D-%D7%A4%D7%A8%D7%99%D7%A2%D7%93_1666716990.',
+                              'yid^22': 'https://cloudfront.yiddish24.com/%D7%9C%D7%99%D7%A4%D7%90-%D7%A9%D7%9E%D7%A2%D7%9C%D7%A6%D7%A2%D7%A8_1666645561.',
+                              'yid^23': 'https://cloudfront.yiddish24.com/%D7%9E%D7%99%D7%9B%D7%90%D7%9C-%D7%A9%D7%A0%D7%99%D7%A6%D7%9C%D7%A2%D7%A8_1662096167.',
+                              'yid^24': 'https://cloudfront.yiddish24.com/%D7%9E%D7%A9%D7%94-%D7%92%D7%90%D7%9C%D7%93%D7%9E%D7%90%D7%9F_1662096198.',
+                              'yid^25': 'https://cloudfront.yiddish24.com/%D7%90%D7%99%D7%99%D7%96%D7%99%D7%A7-%D7%94%D7%90%D7%A0%D7%99%D7%92_1662096204.',
+                              'yid^26': 'https://cloudfront.yiddish24.com/%D7%A7%D7%99%D7%A0%D7%93%D7%A2%D7%A8-%D7%A7%D7%95%D7%95%D7%99%D7%99%D7%A2%D7%A8_1666645700.',
+                              'yid^27': 'https://cloudfront.yiddish24.com/%D7%9C%D7%97%D7%99%D7%99%D7%9D_1662096216.',
+                              'yid^28': 'https://cloudfront.yiddish24.com/%D7%91%D7%A2%D7%9C%D7%96%D7%90_1662096224.',
+                              'yid^29': 'https://cloudfront.yiddish24.com/%D7%95%D7%95%D7%99%D7%96%D7%A0%D7%99%D7%A5_1662096229.',
+                              'yid^30': 'https://cloudfront.yiddish24.com/%D7%A1%D7%A7%D7%95%D7%9C%D7%A2%D7%9F_1662096235.',
+                              'yid^14': 'https://cloudfront.yiddish24.com/%D7%9C%D7%B4%D7%92-%D7%91%D7%A2%D7%95%D7%9E%D7%A8_1666645733.',
+                              'yid^33': 'https://cloudfront.yiddish24.com/%D7%9E%D7%95%D7%93%D7%B3%D7%96%D7%99%D7%A5_1662941272.',
+                              'yid^32': 'https://cloudfront.yiddish24.com/%D7%91%D7%A0%D7%A6%D7%99%D7%95%D7%9F-%D7%A9%D7%A2%D7%A0%D7%A7%D7%A2%D7%A8_1662941321.',
+                              'yid^7': 'https://cloudfront.yiddish24.com/%D7%90%D7%99%D7%93%D7%99%D7%A9-%D7%A7%D7%90%D7%9C%D7%A2%D7%A7%D7%A9%D7%90%D7%9F_1666645673.',
+                              'shi^10':'https://shira24.com/img/shira-logo.png',
+                              'shi^2':'https://shira24.com/img/shira-logo.png',
+                              'shi^14':'https://shira24.com/img/shira-logo.png',
+                              'shi^8':'https://shira24.com/img/shira-logo.png',
+                              'shi^3':'https://shira24.com/img/shira-logo.png',
+                              'shi^13':'https://shira24.com/img/shira-logo.png',
+                              'shi^7':'https://shira24.com/img/shira-logo.png'
                             }
                             %}
                                 {{ mapper2.get(states("input_text.selectedstreamurl")) }}
@@ -219,7 +219,7 @@ cards:
   - type: entities
     entities:
       - entity: select.available_media_players
-        name: 'וועל אויס א ספיקער '
+        name: וועל אויס א ספיקער
         icon: mdi:speaker-wireless
       - entity: select.select_stream
         name: וועל אויס מוזיק טשענעל
@@ -236,15 +236,16 @@ cards:
     filter:
       template: |-
         {% set speakers = states.media_player
-          | selectattr('state','in',['playing','pjaused'])
+          | selectattr('state','in',['playing','paused'])
+          | rejectattr('entity_id','in',integration_entities('Music Assistant'))
+          | selectattr('attributes.media_content_id', 'defined') 
+          | selectattr('attributes.media_content_id','contains', 'https://') 
           | list%}
           {% set playertouse = 'custom:mini-media-player' %}
           {% if states('input_select.cover_art_option')=="Built-in player" %}
           {% set playertouse = 'custom:hui-media-control-card' %}
           {%endif%}
-           
-
-
+         
         [ {% for speaker in expand(speakers)  %}
         {% if states('input_select.cover_art_option')=="icon" %}
 
