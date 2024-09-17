@@ -47,6 +47,7 @@ Here is the code used to setup the 2 tamplate selects, this goes into your confi
 You may want to spit your configuration file to keep it clean,  see homeassistant docs how to do it
 
 ```
+  
 template:
   - select:
      - name: "Available Media Players"
@@ -81,57 +82,76 @@ template:
            data:
               value: "{{ entity }}"
   - select:
-     - name: "Select Stream"  
-       options: "{{['אלגעמיינע קאלעקשאן','רואיגע מוזיק','נגינה אן מוזיק','חזנות קאלעקשאן','חתונה פרייליך קאלעקשאן','חתונה צווייטע טאנץ קאלעקשאן','חתונה קומזיץ קאלעקשאן','שבת קאלעקשאן','מוצאי שבת קאלעקשאן','חנוכה קאלעקשאן','פורים קאלעקשאן','פסח קאלעקשאן','סוכות','ימים נוראים','סאטמאר','מאטי אילאוויטש','באבוב','שבועות','מרדכי בן דוד','אברהם פריעד','ליפא שמעלצער','מיכאל שניצלער','משה גאלדמאן','אייזיק האניג','קינדער קווייער','לחיים','בעלזא','וויזניץ','סקולען','ל״ג בעומר','מוד׳זיץ','בנציון שענקער','אידישע ניגונים קאלעקשאן','שירה מיקס','שירה פרייליך','שירה רילעקס','שירה וואקאל','שירה שבת','שירה פסח','שירה ימים נוראים']}}"
+     - name: "Select Stream" 
+       #options: "{{['אלגעמיינע קאלעקשאן','רואיגע מוזיק','נגינה אן מוזיק','חזנות קאלעקשאן','חתונה פרייליך קאלעקשאן','חתונה צווייטע טאנץ קאלעקשאן','חתונה קומזיץ קאלעקשאן','שבת קאלעקשאן','מוצאי שבת קאלעקשאן','חנוכה קאלעקשאן','פורים קאלעקשאן','פסח קאלעקשאן','סוכות','ימים נוראים','סאטמאר','מאטי אילאוויטש','באבוב','שבועות','מרדכי בן דוד','אברהם פריעד','ליפא שמעלצער','מיכאל שניצלער','משה גאלדמאן','אייזיק האניג','קינדער קווייער','לחיים','בעלזא','וויזניץ','סקולען','ל״ג בעומר','מוד׳זיץ','בנציון שענקער','אידישע ניגונים קאלעקשאן','שירה מיקס','שירה פרייליך','שירה רילעקס','שירה וואקאל','שירה שבת','שירה פסח','שירה ימים נוראים']}}"
+       options: "{{['אלגעמיינע קאלעקשאן','רואיגע מוזיק','נגינה אן מוזיק','חזנות קאלעקשאן','חתונה פרייליך קאלעקשאן','חתונה צווייטע טאנץ קאלעקשאן','קומזיץ קאלעקשאן','שבת קאלעקשאן','מוצאי שבת קאלעקשאן','חנוכה קאלעקשאן','פורים קאלעקשאן','לעבעדיג קאלעקשאן','פסח קאלעקשאן','סוכות','ימים נוראים','פיאנע','מעדיטעשאן','סאטמאר','חבד','מאטי אילאוויטש','אביש בראדט','באבוב','שבועות','מרדכי בן דוד','אברהם פריעד','ליפא שמעלצער','מיכאל שניצלער','אהרלה סאמעט','דודי קאליש','זאנוויל וויינברגר','משה גאלדמאן','אייזיק האניג','קינדער קווייער','לחיים','בעלזא','וויזניץ','סקולען','ל״ג בעומר','מוד׳זיץ','בנציון שענקער','אידישע ניגונים קאלעקשאן','בערי וועבער','ברוך לוין','ישראל ווערדיגער','שלומי גרטנר','שמחה ליינר','יהודה גרין','יעקב דאסקאל','מוטי שטיינמץ','שלומי דאסקאל',' שירה מיקס','שירה פרייליך','שירה רילעקס','שירה וואקאל','שירה שבת','שירה פסח','שירה ימים נוראים']}}"
        state: "{{ states('input_text.selectedstreamname') }}"
        select_option:
          - variables:
              mystream: >
                    {% set mapper = {
-                                      'אלגעמיינע קאלעקשאן':'yid^1',
-                                      'רואיגע מוזיק':'yid^11',
-                                      'נגינה אן מוזיק':'yid^3',
-                                      'חזנות קאלעקשאן':'yid^5',
-                                      'חתונה פרייליך קאלעקשאן':'yid^8',
-                                      'חתונה צווייטע טאנץ קאלעקשאן':'yid^10',
-                                      'חתונה קומזיץ קאלעקשאן':'yid^9',
-                                      'שבת קאלעקשאן':'yid^2',
-                                      'מוצאי שבת קאלעקשאן':'yid^6',
-                                      'חנוכה קאלעקשאן':'yid^4',
-                                      'פורים קאלעקשאן':'yid^12',
-                                      'פסח קאלעקשאן':'yid^13',
-                                      'סוכות':'yid^17',
-                                      'ימים נוראים':'yid^16',
-                                      'סאטמאר':'yid^35',
-                                      'מאטי אילאוויטש':'yid^34',
-                                      'באבוב':'yid^31',
-                                      'שבועות':'yid^19',
-                                      'מרדכי בן דוד':'yid^20',
-                                      'אברהם פריעד':'yid^21',
-                                      'ליפא שמעלצער':'yid^22',
-                                      'מיכאל שניצלער':'yid^23',
-                                      'משה גאלדמאן':'yid^24',
-                                      'אייזיק האניג':'yid^25',
-                                      'קינדער קווייער':'yid^26',
-                                      'לחיים':'yid^27',
-                                      'בעלזא':'yid^28',
-                                      'וויזניץ':'yid^29',
-                                      'סקולען':'yid^30',
-                                      'ל״ג בעומר':'yid^14',
-                                      'מוד׳זיץ':'yid^33',
-                                      'בנציון שענקער':'yid^32',
-                                      'אידישע ניגונים קאלעקשאן':'yid^7',
-                                      'שירה מיקס':'shi^10',
-                                      'שירה פרייליך':'shi^2',
-                                      'שירה רילעקס':'shi^14',
-                                      'שירה וואקאל':'shi^8',
-                                      'שירה שבת':'shi^3',
-                                      'שירה פסח':'shi^13',
-                                      'שירה ימים נוראים':'shi^7'
+                    'אלגעמיינע קאלעקשאן':'1^yid',
+                    'רואיגע מוזיק':'11^yid',
+                    'נגינה אן מוזיק':'3^yid',
+                    'חזנות קאלעקשאן':'5^yid',
+                    'חתונה פרייליך קאלעקשאן':'8^yid',
+                    'חתונה צווייטע טאנץ קאלעקשאן':'10^yid',
+                    'קומזיץ קאלעקשאן':'9^yid',
+                    'שבת קאלעקשאן':'2^yid',
+                    'מוצאי שבת קאלעקשאן':'6^yid',
+                    'חנוכה קאלעקשאן':'4^yid',
+                    'פורים קאלעקשאן':'12^yid',
+                    'לעבעדיג קאלעקשאן':'37^yid',
+                    'פסח קאלעקשאן':'13^yid',
+                    'סוכות':'17^yid',
+                    'ימים נוראים':'16^yid',
+                    'פיאנע':'38^yid',
+                    'מעדיטעשאן':'39^yid',
+                    'סאטמאר':'35^yid',
+                    'חבד':'40^yid',
+                    'מאטי אילאוויטש':'34^yid',
+                    'אביש בראדט':'41^yid',
+                    'באבוב':'31^yid',
+                    'שבועות':'19^yid',
+                    'מרדכי בן דוד':'20^yid',
+                    'אברהם פריעד':'21^yid',
+                    'ליפא שמעלצער':'22^yid',
+                    'מיכאל שניצלער':'23^yid',
+                    'אהרלה סאמעט':'47^yid',
+                    'דודי קאליש':'48^yid',
+                    'זאנוויל וויינברגר':'53^yid',
+                    'משה גאלדמאן':'24^yid',
+                    'אייזיק האניג':'25^yid',
+                    'קינדער קווייער':'26^yid',
+                    'לחיים':'27^yid',
+                    'בעלזא':'28^yid',
+                    'וויזניץ':'29^yid',
+                    'סקולען':'30^yid',
+                    'ל״ג בעומר':'14^yid',
+                    'מוד׳זיץ':'33^yid',
+                    'בנציון שענקער':'32^yid',
+                    'אידישע ניגונים קאלעקשאן':'7^yid',
+                    'בערי וועבער':'42^yid',
+                    'ברוך לוין':'43^yid',
+                    'ישראל ווערדיגער':'44^yid',
+                    'שלומי גרטנר':'45^yid',
+                    'שמחה ליינר':'46^yid',
+                    'יהודה גרין':'49^yid',
+                    'יעקב דאסקאל':'50^yid',
+                    'מוטי שטיינמץ':'51^yid',
+                    'שלומי דאסקאל':'52^yid',
+                    'שירה מיקס':'10^shi',
+                    'שירה פרייליך':'2^shi',
+                    'שירה רילעקס':'14^shi',
+                    'שירה וואקאל':'8^shi',
+                    'שירה שבת':'3^shi',
+                    'שירה פסח':'13^shi',
+                    'שירה ימים נוראים':'7^shi'
                      }%}
+                    {% set mapper222 =  mapper | list %}
                      {{ mapper.get(option) }}
                      
-                     
+       
          - service: input_text.set_value
            target:
             entity_id: input_text.selectedstreamname 
@@ -149,58 +169,80 @@ template:
                     - variables:
                         mypicture: >
                             {% set mapper2 = {                   
-                              'yid^1': 'https://cloudfront.yiddish24.com/%D7%90%D7%9C%D7%92%D7%A2%D7%9E%D7%99%D7%99%D7%A0%D7%A2-%D7%A7%D7%90%D7%9C%D7%A2%D7%A7%D7%A9%D7%90%D7%9F_1662090580.',
-                              'yid^11': 'https://cloudfront.yiddish24.com/%D7%A8%D7%95%D7%90%D7%99%D7%92%D7%A2-%D7%9E%D7%95%D7%96%D7%99%D7%A7_1662090553.',
-                              'yid^3': 'https://cloudfront.yiddish24.com/%D7%95%D7%95%D7%90%D7%A7%D7%90%D7%9C%D7%99%D7%A9_1662090512.',
-                              'yid^5': 'https://cloudfront.yiddish24.com/%D7%97%D7%96%D7%A0%D7%95%D7%AA_1662090478.',
-                              'yid^8': 'https://cloudfront.yiddish24.com/%D7%97%D7%AA%D7%95%D7%A0%D7%94-%D7%A4%D7%A8%D7%99%D7%99%D7%9C%D7%99%D7%9A_1662090439.',
-                              'yid^10': 'https://cloudfront.yiddish24.com/%D7%A6%D7%95%D7%95%D7%99%D7%99%D7%98%D7%A2-%D7%98%D7%90%D7%A0%D7%A5_1662090413.',
-                              'yid^9': 'https://cloudfront.yiddish24.com/%D7%A7%D7%95%D7%9E%D7%96%D7%99%D7%A5_1662096447.',
-                              'yid^2': 'https://cloudfront.yiddish24.com/%D7%A9%D7%91%D7%AA_1662090342.',
-                              'yid^6': 'https://cloudfront.yiddish24.com/%D7%9E%D7%95%D7%A6%D7%90%D7%99-%D7%A9%D7%91%D7%AA_1662090315.',
-                              'yid^4': 'https://cloudfront.yiddish24.com/%D7%97%D7%A0%D7%95%D7%9B%D7%94_1662090285.',
-                              'yid^12': 'https://cloudfront.yiddish24.com/%D7%A4%D7%95%D7%A8%D7%99%D7%9D_1662090243.',
-                              'yid^13': 'https://cloudfront.yiddish24.com/pesach_1661965660.jpg',
-                              'yid^17': 'https://cloudfront.yiddish24.com/%D7%A1%D7%95%D7%9B%D7%95%D7%AA_1662096684.',
-                              'yid^16': 'https://cloudfront.yiddish24.com/%D7%99%D7%9E%D7%99%D7%9D-%D7%A0%D7%95%D7%A8%D7%90%D7%99%D7%9D_1662940956.',
-                              'yid^35': 'https://cloudfront.yiddish24.com/%D7%A1%D7%90%D7%98%D7%9E%D7%90%D7%A8_1662941031.',
-                              'yid^34': 'https://cloudfront.yiddish24.com/%D7%9E%D7%90%D7%98%D7%99-%D7%90%D7%99%D7%9C%D7%90%D7%95%D7%95%D7%99%D7%98%D7%A9_1662941151.',
-                              'yid^31': 'https://cloudfront.yiddish24.com/%D7%91%D7%90%D7%91%D7%95%D7%91_1662941200.',
-                              'yid^19': 'https://cloudfront.yiddish24.com/%D7%A9%D7%91%D7%95%D7%A2%D7%95%D7%AA_1662096087.',
-                              'yid^20': 'https://cloudfront.yiddish24.com/%D7%9E%D7%A8%D7%93%D7%9B%D7%99-%D7%91%D7%9F-%D7%93%D7%95%D7%93_1662096107.jpg',
-                              'yid^21': 'https://cloudfront.yiddish24.com/%D7%90%D7%91%D7%A8%D7%94%D7%9D-%D7%A4%D7%A8%D7%99%D7%A2%D7%93_1666716990.',
-                              'yid^22': 'https://cloudfront.yiddish24.com/%D7%9C%D7%99%D7%A4%D7%90-%D7%A9%D7%9E%D7%A2%D7%9C%D7%A6%D7%A2%D7%A8_1666645561.',
-                              'yid^23': 'https://cloudfront.yiddish24.com/%D7%9E%D7%99%D7%9B%D7%90%D7%9C-%D7%A9%D7%A0%D7%99%D7%A6%D7%9C%D7%A2%D7%A8_1662096167.',
-                              'yid^24': 'https://cloudfront.yiddish24.com/%D7%9E%D7%A9%D7%94-%D7%92%D7%90%D7%9C%D7%93%D7%9E%D7%90%D7%9F_1662096198.',
-                              'yid^25': 'https://cloudfront.yiddish24.com/%D7%90%D7%99%D7%99%D7%96%D7%99%D7%A7-%D7%94%D7%90%D7%A0%D7%99%D7%92_1662096204.',
-                              'yid^26': 'https://cloudfront.yiddish24.com/%D7%A7%D7%99%D7%A0%D7%93%D7%A2%D7%A8-%D7%A7%D7%95%D7%95%D7%99%D7%99%D7%A2%D7%A8_1666645700.',
-                              'yid^27': 'https://cloudfront.yiddish24.com/%D7%9C%D7%97%D7%99%D7%99%D7%9D_1662096216.',
-                              'yid^28': 'https://cloudfront.yiddish24.com/%D7%91%D7%A2%D7%9C%D7%96%D7%90_1662096224.',
-                              'yid^29': 'https://cloudfront.yiddish24.com/%D7%95%D7%95%D7%99%D7%96%D7%A0%D7%99%D7%A5_1662096229.',
-                              'yid^30': 'https://cloudfront.yiddish24.com/%D7%A1%D7%A7%D7%95%D7%9C%D7%A2%D7%9F_1662096235.',
-                              'yid^14': 'https://cloudfront.yiddish24.com/%D7%9C%D7%B4%D7%92-%D7%91%D7%A2%D7%95%D7%9E%D7%A8_1666645733.',
-                              'yid^33': 'https://cloudfront.yiddish24.com/%D7%9E%D7%95%D7%93%D7%B3%D7%96%D7%99%D7%A5_1662941272.',
-                              'yid^32': 'https://cloudfront.yiddish24.com/%D7%91%D7%A0%D7%A6%D7%99%D7%95%D7%9F-%D7%A9%D7%A2%D7%A0%D7%A7%D7%A2%D7%A8_1662941321.',
-                              'yid^7': 'https://cloudfront.yiddish24.com/%D7%90%D7%99%D7%93%D7%99%D7%A9-%D7%A7%D7%90%D7%9C%D7%A2%D7%A7%D7%A9%D7%90%D7%9F_1666645673.',
-                              'shi^10':'https://shira24.com/img/shira-logo.png',
-                              'shi^2':'https://shira24.com/img/shira-logo.png',
-                              'shi^14':'https://shira24.com/img/shira-logo.png',
-                              'shi^8':'https://shira24.com/img/shira-logo.png',
-                              'shi^3':'https://shira24.com/img/shira-logo.png',
-                              'shi^13':'https://shira24.com/img/shira-logo.png',
-                              'shi^7':'https://shira24.com/img/shira-logo.png'
+                                '1^yid' : 'https://i.ibb.co/fv2k7HM/all.jpg',
+                                '11^yid' : 'https://i.ibb.co/nj4rYGw/slow.jpg',
+                                '3^yid' : 'https://i.ibb.co/xs9RtmD/vocal.jpg',
+                                '5^yid' : 'https://i.ibb.co/FmDw2wX/chazunas.jpg',
+                                '8^yid' : 'https://i.ibb.co/rb4y1s5/chasunah.jpg',
+                                '10^yid' : 'https://i.ibb.co/DGqK7dC/secunddence.jpg',
+                                '9^yid' : 'https://i.ibb.co/Z83GfNh/kumzitz.jpg',
+                                '2^yid' : 'https://i.ibb.co/KKJJSPj/shabos.jpg',
+                                '6^yid' : 'https://i.ibb.co/9VmWbkW/hadalah.jpg',
+                                '4^yid' : 'https://i.ibb.co/LnPPzrv/chanukah.jpg',
+                                '12^yid' : 'https://i.ibb.co/5vzqqTj/purimn.jpg',
+                                '37^yid' : 'https://i.ibb.co/jVqXK56/happy.jpg',
+                                '13^yid' : 'https://i.ibb.co/VqJ3t9P/paisach.jpg',
+                                '17^yid' : 'https://i.ibb.co/KDpQbgb/suckas.jpg',
+                                '16^yid' : 'https://i.ibb.co/19QyC06/yomimnoiruim.png',
+                                '38^yid' : 'https://i.ibb.co/0K1qk3k/piano.jpg',
+                                '39^yid' : 'https://i.ibb.co/c2pGc25/maditation.png',
+                                '35^yid' : 'https://i.ibb.co/w4MgNT6/satmar.jpg',
+                                '40^yid' : 'https://i.ibb.co/cXrCRrT/chabad.png',
+                                '34^yid' : 'https://i.ibb.co/y8jC2Fm/ilowitz.jpg',
+                                '41^yid' : 'https://i.ibb.co/CP0rXR9/Abish-Brodt.jpg',
+                                '31^yid' : 'https://i.ibb.co/JqzR55s/bobov.jpg',
+                                '19^yid' : 'https://i.ibb.co/r516xF6/shvius.jpg',
+                                '20^yid' : 'https://i.ibb.co/1KmCZLN/mbd.jpg',
+                                '21^yid' : 'https://i.ibb.co/9HwmK3c/avrumfried.jpg',
+                                '22^yid' : 'https://i.ibb.co/jyqgHVQ/schmeltzer.jpg',
+                                '23^yid' : 'https://i.ibb.co/SwbxGRV/schnitzler.jpg',
+                                '47^yid' : 'https://i.ibb.co/4f9mhx7/ahrla-samet.jpg',
+                                '48^yid' : 'https://i.ibb.co/nf6r7N3/Dudi-Kalish.png',
+                                '53^yid' : 'https://i.ibb.co/SVmGN8k/wienberger.png',
+                                '24^yid' : 'https://i.ibb.co/YZ1nhzb/Goldman.png',
+                                '25^yid' : 'https://i.ibb.co/NCtxHSm/isaac-Honig.jpg',
+                                '26^yid' : 'https://i.ibb.co/p6HfBqn/yingerlich.png',
+                                '27^yid' : 'https://i.ibb.co/tJxcxr5/lchaim.jpg',
+                                '28^yid' : 'https://i.ibb.co/chNhXc7/belz.jpg',
+                                '29^yid' : 'https://i.ibb.co/C1JFsHq/viznizt.jpg',
+                                '30^yid' : 'https://i.ibb.co/1QJM7nF/skulen.png',
+                                '14^yid' : 'https://i.ibb.co/2jzQDsr/lagboimer.jpg',
+                                '33^yid' : 'https://i.ibb.co/NLDbrNd/mudzitz.png',
+                                '32^yid' : 'https://i.ibb.co/qWjkPQv/shenker.jpg',
+                                '7^yid' : 'https://i.ibb.co/XDGNsxt/yiddish.jpg',
+                                '42^yid' : 'https://i.ibb.co/Z1L38dn/berry-Webber.jpg',
+                                '43^yid' : 'https://i.ibb.co/GTTnKTf/burachlevin.jpg',
+                                '44^yid' : 'https://i.ibb.co/vqPCZZZ/verdiger.jpg',
+                                '45^yid' : 'https://i.ibb.co/s1xM7qw/gertner.jpg',
+                                '46^yid' : 'https://i.ibb.co/RBYwvD3/leiner.jpg',
+                                '49^yid' : 'https://i.ibb.co/zZb3MBD/green.jpg',
+                                '50^yid' : 'https://i.ibb.co/JsrJWyv/daskel-Yanky.png',
+                                '51^yid' : 'https://i.ibb.co/qyvvJdT/mottysteinment.jpg',
+                                '52^yid' : 'https://i.ibb.co/qFp0BF1/Daskal.jpg',
+                                '10^shi' :'https://shira24.com/img/shira-logo.png',
+                                '2^shi' :'https://shira24.com/img/shira-logo.png',
+                                '14^shi' :'https://shira24.com/img/shira-logo.png',
+                                '8^shi' :'https://shira24.com/img/shira-logo.png',
+                                '3^shi' :'https://shira24.com/img/shira-logo.png',
+                                '13^shi' :'https://shira24.com/img/shira-logo.png',
+                                '7^shi' :'https://shira24.com/img/shira-logo.png'
+
                             }
                             %}
+
                                 {{ mapper2.get(states("input_text.selectedstreamurl")) }}
+
                     - service: media_player.play_media
                       data:
-                        media_content_id: '{{ "https://music.yiddish24.com" if  (states("input_text.selectedstreamurl")).split("^")[0] == "yid" else "https://music.shira24.com"}}:5001/{{states("input_text.selectedstreamurl").split("^")[1]}}'
+                       # media_content_id: '{{ "https://music.yiddish24.com" if  (states("input_text.selectedstreamurl")).split("^")[1] == "yid" else "https://music.shira24.com"}}:5001/{{states("input_text.selectedstreamurl").split("^")[0]}}'
+                        media_content_id: '{{ "https://music.y24.app" if  (states("input_text.selectedstreamurl")).split("^")[1] == "yid" else "https://music.shira24.com:5001"}}/{{states("input_text.selectedstreamurl").split("^")[0]}}'
                         media_content_type: Music
                         extra:
                          thumb: "{{mypicture}}"
                          title: "{{states('input_text.selectedstreamname')}}"
                       target:
                         entity_id: "{{ states('input_text.selected_media_player')}}"
+      
 ```
 note! if you already have something in your configuration under tamplate,  don't repeate the word tamplate,  Judy put the 2 selects under the parent tamplate node
 
