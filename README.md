@@ -1,4 +1,5 @@
 # HaYidstream
+Update 4, updated URl , ADDED new Stream, updated Photos
 Update 3 added shia 24  Just note shira server is very slow so it will buffer like 10 seconds before starting the stream
 
 
